@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1b\x63\x61lculator/calculator.proto\x12\ncalculator\"/\n\x0b\x43\x61lcRequest\x12\x0f\n\x07numberA\x18\x01 \x01(\x05\x12\x0f\n\x07numberB\x18\x02 \x01(\x05\"\x1c\n\rNumericResult\x12\x0b\n\x03sum\x18\x01 \x01(\x05\x32\x95\x01\n\nCalculator\x12@\n\nSumNumbers\x12\x17.calculator.CalcRequest\x1a\x19.calculator.NumericResult\x12\x45\n\x0fSubtractNumbers\x12\x17.calculator.CalcRequest\x1a\x19.calculator.NumericResultb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1b\x63\x61lculator/calculator.proto\x12\ncalculator\"/\n\x0b\x43\x61lcRequest\x12\x0f\n\x07numberA\x18\x01 \x01(\x05\x12\x0f\n\x07numberB\x18\x02 \x01(\x05\"\x1f\n\rNumericResult\x12\x0e\n\x06result\x18\x01 \x01(\x05\x32\x95\x01\n\nCalculator\x12@\n\nSumNumbers\x12\x17.calculator.CalcRequest\x1a\x19.calculator.NumericResult\x12\x45\n\x0fSubtractNumbers\x12\x17.calculator.CalcRequest\x1a\x19.calculator.NumericResultb\x06proto3')
 
 
 
@@ -41,7 +41,7 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _CALCREQUEST._serialized_start=43
   _CALCREQUEST._serialized_end=90
   _NUMERICRESULT._serialized_start=92
-  _NUMERICRESULT._serialized_end=120
-  _CALCULATOR._serialized_start=123
-  _CALCULATOR._serialized_end=272
+  _NUMERICRESULT._serialized_end=123
+  _CALCULATOR._serialized_start=126
+  _CALCULATOR._serialized_end=275
 # @@protoc_insertion_point(module_scope)

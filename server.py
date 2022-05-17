@@ -7,10 +7,11 @@ from calculator import calculator_pb2_grpc
 class CalcService(calculator_pb2_grpc.CalculatorServicer):
 
     def SumNumbers(self, request, context):
-        return NumericResult(sum=request.numberA + request.numberB)
+        return NumericResult(result=request.numberA + request.numberB)
 
     def SubtractNumbers(self, request, context):
-        return NumericResult(sum=request.numberA - request.numberB)
+        return NumericResult(result=request.numberA - request.numberB)
+
 
 
 def serve():
