@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package dummy_trainer;
+
+// The  service definition.
+service DummyTrainer {
+  // Defines the Remote Procedure Calls available on the Service
+  rpc StartTrain(StartTrainRequest) returns (stream TrainResponse);
+}
+
+message StartTrainRequest{
+  string data_path = 1;
+}
+message TrainResponse {
+  oneof response_types{
+    TrainStartResponse start_response = 1;
+    TrainProgressResponse progress_response = 2;
+    TrainErrorResponse error_response = 3;
+    TrainCompletionResponse completion_response = 4;
+  }
+}
+
+message TrainStartResponse {
+  bool success = 1;
+}
+message TrainProgressResponse {
+  int32 epoch = 1;
+}
+
+message TrainErrorResponse{
+  enum ErrorType{
+    DATA_NOT_FOUND = 0;
+    OTHER = 99;
+  }
+  ErrorType error_type = 1;
+  string error_message = 2;
+}
+
+message TrainCompletionResponse {
+  string model_path = 1;
+}
