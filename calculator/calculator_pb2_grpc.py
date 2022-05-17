@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-import calculator_pb2 as calculator__pb2
+from calculator import calculator_pb2 as calculator_dot_calculator__pb2
 
 
 class CalculatorStub(object):
@@ -17,13 +17,13 @@ class CalculatorStub(object):
         """
         self.SumNumbers = channel.unary_unary(
                 '/calculator.Calculator/SumNumbers',
-                request_serializer=calculator__pb2.CalcRequest.SerializeToString,
-                response_deserializer=calculator__pb2.NumericResult.FromString,
+                request_serializer=calculator_dot_calculator__pb2.CalcRequest.SerializeToString,
+                response_deserializer=calculator_dot_calculator__pb2.NumericResult.FromString,
                 )
         self.SubtractNumbers = channel.unary_unary(
                 '/calculator.Calculator/SubtractNumbers',
-                request_serializer=calculator__pb2.CalcRequest.SerializeToString,
-                response_deserializer=calculator__pb2.NumericResult.FromString,
+                request_serializer=calculator_dot_calculator__pb2.CalcRequest.SerializeToString,
+                response_deserializer=calculator_dot_calculator__pb2.NumericResult.FromString,
                 )
 
 
@@ -49,13 +49,13 @@ def add_CalculatorServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'SumNumbers': grpc.unary_unary_rpc_method_handler(
                     servicer.SumNumbers,
-                    request_deserializer=calculator__pb2.CalcRequest.FromString,
-                    response_serializer=calculator__pb2.NumericResult.SerializeToString,
+                    request_deserializer=calculator_dot_calculator__pb2.CalcRequest.FromString,
+                    response_serializer=calculator_dot_calculator__pb2.NumericResult.SerializeToString,
             ),
             'SubtractNumbers': grpc.unary_unary_rpc_method_handler(
                     servicer.SubtractNumbers,
-                    request_deserializer=calculator__pb2.CalcRequest.FromString,
-                    response_serializer=calculator__pb2.NumericResult.SerializeToString,
+                    request_deserializer=calculator_dot_calculator__pb2.CalcRequest.FromString,
+                    response_serializer=calculator_dot_calculator__pb2.NumericResult.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -80,8 +80,8 @@ class Calculator(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/calculator.Calculator/SumNumbers',
-            calculator__pb2.CalcRequest.SerializeToString,
-            calculator__pb2.NumericResult.FromString,
+            calculator_dot_calculator__pb2.CalcRequest.SerializeToString,
+            calculator_dot_calculator__pb2.NumericResult.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -97,7 +97,7 @@ class Calculator(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/calculator.Calculator/SubtractNumbers',
-            calculator__pb2.CalcRequest.SerializeToString,
-            calculator__pb2.NumericResult.FromString,
+            calculator_dot_calculator__pb2.CalcRequest.SerializeToString,
+            calculator_dot_calculator__pb2.NumericResult.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
